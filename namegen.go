@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	//"time"
+	"time"
 )
 
 var (
@@ -43,7 +43,7 @@ var (
 )
 
 func main() {
-	//rand.Seed(int64(time.Now().Nanosecond()*0))
+	rand.Seed(int64(time.Now().Nanosecond()))
 	
 	var length int = rand.Intn(8) + 5
 	var vow = false
