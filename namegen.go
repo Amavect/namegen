@@ -7,8 +7,7 @@ import (
 )
 
 var (
-	f int = 2
-
+	// A list of consonants.
 	consonant []string = []string{
 		"b",
 		"c",
@@ -32,7 +31,7 @@ var (
 		"y",
 		"z",
 	}
-
+	// A list of vowels.
 	vowel []string = []string{
 		"a",
 		"e",
@@ -43,19 +42,26 @@ var (
 )
 
 func main() {
-	rand.Seed(int64(time.Now().Nanosecond()))
-	
-	var length int = rand.Intn(8) + 5
-	var vow = false
+	rand.Seed(int64(time.Now().Nanosecond())) // Seed randomness based on nanoseconds.
+
+	var length int = rand.Intn(7) + 5 // Generate length of word.
+	var isVowel bool
+	if rand.Float64() > 0.7 { // Determines if the first letter is a vowel.
+		isVowel = true
+	} else {
+		isVowel = false
+	}
+
 	var name string
-	
-	for ; length > 0; length-- {
-		if vow {
+
+	for ; length > 0; length-- { // Generates the word.
+		if isVowel {
 			name = name + vowel[int(rand.Float64()*float64(len(vowel)))]
 		} else {
 			name = name + consonant[int(rand.Float64()*float64(len(consonant)))]
 		}
-		vow = !vow
+		isVowel = !isVowel
 	}
-	fmt.Println(name)
+
+	fmt.Println(name) // Prints the word.
 }
