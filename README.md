@@ -1,0 +1,1 @@
+namegen is a simple word generator.
